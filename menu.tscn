@@ -1,71 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0uafk151o72l"]
+[gd_scene load_steps=7 format=3 uid="uid://c0uafk151o72l"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_7o686"]
-[ext_resource type="FontFile" uid="uid://blk4jm4an8dsu" path="res://Assets/Kurland.ttf" id="1_sbffn"]
-[ext_resource type="Texture2D" uid="uid://csvxtyf0wdria" path="res://Assets/_75055865-5209-44dd-8165-bdcd90aae4c7.jpg" id="2_d3ckf"]
+[ext_resource type="Texture2D" uid="uid://b5tmtiqrxaden" path="res://Assets/vareados/telaincial.png" id="1_ouomn"]
+[ext_resource type="Texture2D" uid="uid://be7bceno1cgd8" path="res://Assets/vareados/logo-removebg.png" id="2_ojdp2"]
+[ext_resource type="Texture2D" uid="uid://bpdf64q1tq3gb" path="res://Assets/vareados/jogar-removebg-preview.png" id="3_l4b6w"]
+[ext_resource type="Texture2D" uid="uid://bvndblaxk24gy" path="res://Assets/vareados/pressed e hover.png" id="4_a7kul"]
+[ext_resource type="Texture2D" uid="uid://ds07qsioakhle" path="res://Assets/vareados/fechar-removebg-preview (2).png" id="5_pw8de"]
+[ext_resource type="Texture2D" uid="uid://dkq3ywjh2juic" path="res://Assets/vareados/pressed_hover fechar.png" id="6_ou7de"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_b1l0v"]
-font = ExtResource("1_sbffn")
-font_size = 64
-font_color = Color(1, 0.839216, 0.666667, 1)
-outline_size = 8
-outline_color = Color(0, 0, 0, 0.639216)
-shadow_size = 8
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(6, 6)
+[node name="Telaincial" type="Sprite2D"]
+position = Vector2(584, 312)
+scale = Vector2(0.207182, 0.209379)
+texture = ExtResource("1_ouomn")
 
-[node name="Menu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_7o686")
+[node name="Logo-removebg" type="Sprite2D" parent="."]
+position = Vector2(1307.79, -303.938)
+texture = ExtResource("2_ojdp2")
 
-[node name="75055865-5209-44Dd-8165-bdcd90Aae4c7" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.729412)
-texture_filter = 2
-position = Vector2(574.5, 235)
-scale = Vector2(1.12793, 1)
-texture = ExtResource("2_d3ckf")
+[node name="jogar" type="TextureButton" parent="." groups=["button"]]
+offset_left = 200.855
+offset_top = -113.839
+offset_right = 1919.86
+offset_bottom = 634.161
+texture_normal = ExtResource("3_l4b6w")
+texture_pressed = ExtResource("4_a7kul")
+texture_hover = ExtResource("4_a7kul")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 195.0
-offset_top = 128.0
-offset_right = 476.0
-offset_bottom = 199.0
-text = "Baby Farm"
-label_settings = SubResource("LabelSettings_b1l0v")
-vertical_alignment = 1
-
-[node name="ButtonsContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 112.0
-offset_top = -36.0
-offset_right = 352.0
-offset_bottom = 264.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 30
-
-[node name="NewGame" type="Button" parent="ButtonsContainer" groups=["button"]]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_sbffn")
-theme_override_font_sizes/font_size = 42
-text = "Novo Jogo!"
-
-[node name="Quit" type="Button" parent="ButtonsContainer" groups=["button"]]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/icon_max_width = 0
-theme_override_fonts/font = ExtResource("1_sbffn")
-theme_override_font_sizes/font_size = 42
-text = "Sair"
+[node name="fechar" type="TextureButton" parent="." groups=["button"]]
+anchors_preset = -1
+anchor_left = 0.666
+anchor_top = 0.592
+anchor_right = 0.666
+anchor_bottom = 0.592
+offset_left = -3188.01
+offset_top = -1460.31
+offset_right = -1392.01
+offset_bottom = -772.315
+texture_normal = ExtResource("5_pw8de")
+texture_pressed = ExtResource("6_ou7de")
+texture_hover = ExtResource("6_ou7de")
+ignore_texture_size = true
+stretch_mode = 0

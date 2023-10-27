@@ -1,0 +1,147 @@
+[gd_scene load_steps=19 format=3 uid="uid://f56o8c3ontds"]
+
+[ext_resource type="Texture2D" uid="uid://653xd7hlw2fw" path="res://Assets/TileSet/plowed_soil1.png" id="1_apold"]
+[ext_resource type="Script" path="res://area_plantavel.gd" id="1_cxj2k"]
+[ext_resource type="Texture2D" uid="uid://c5fcx4ust85bv" path="res://Assets/plantss/plants.png" id="3_kv7rf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww46d"]
+atlas = ExtResource("1_apold")
+region = Rect2(24, 96, 24, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2vmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww46d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm3oy"]
+size = Vector2(20, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3qsw"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i33p4"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(192, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2q3l"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(192, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6foh0"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(192, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vcxb"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(192, 192, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm1ai"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(228, 96, 57, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l08yr"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1wun"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(0, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4vao"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(0, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b43ds"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(0, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbr5b"]
+atlas = ExtResource("3_kv7rf")
+region = Rect2(0, 192, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j473t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3qsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i33p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2q3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6foh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vcxb")
+}],
+"loop": false,
+"name": &"milho_grown",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm1ai")
+}],
+"loop": false,
+"name": &"nada",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l08yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1wun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4vao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b43ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbr5b")
+}],
+"loop": false,
+"name": &"tomate_grown",
+"speed": 0.0
+}]
+
+[node name="area_plantavel" type="StaticBody2D"]
+script = ExtResource("1_cxj2k")
+
+[node name="terra_fertil" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p2vmw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qm3oy")
+
+[node name="plant" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -14)
+scale = Vector2(0.875, 0.859375)
+sprite_frames = SubResource("SpriteFrames_j473t")
+animation = &"nada"
+
+[node name="Tempo_milho" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="Tempo_tomate" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="Tempo_milho" to="." method="_on_tempo_milho_timeout"]
+[connection signal="timeout" from="Tempo_tomate" to="." method="_on_tempo_tomate_timeout"]

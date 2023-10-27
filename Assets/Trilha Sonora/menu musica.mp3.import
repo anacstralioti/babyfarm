@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cp3w0scjjfbi1"
+path="res://.godot/imported/menu musica.mp3-3dfbb63a03588457153fb317a97721c2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Trilha Sonora/menu musica.mp3"
+dest_files=["res://.godot/imported/menu musica.mp3-3dfbb63a03588457153fb317a97721c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

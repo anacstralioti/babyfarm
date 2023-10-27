@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://co1v5myv4g76i"]
+
+[ext_resource type="Script" path="res://menu1.gd" id="1_pkpbv"]
+[ext_resource type="Texture2D" uid="uid://b5tmtiqrxaden" path="res://Assets/vareados/telaincial.png" id="1_vtpcv"]
+[ext_resource type="Texture2D" uid="uid://ds07qsioakhle" path="res://Assets/vareados/fechar-removebg-preview (2).png" id="2_le76e"]
+[ext_resource type="Texture2D" uid="uid://dkq3ywjh2juic" path="res://Assets/vareados/pressed_hover fechar.png" id="3_441qq"]
+[ext_resource type="Texture2D" uid="uid://bpdf64q1tq3gb" path="res://Assets/vareados/jogar-removebg-preview.png" id="4_dbpar"]
+[ext_resource type="Texture2D" uid="uid://bvndblaxk24gy" path="res://Assets/vareados/pressed e hover.png" id="5_smbv2"]
+[ext_resource type="Texture2D" uid="uid://be7bceno1cgd8" path="res://Assets/vareados/logo-removebg.png" id="7_epqe1"]
+[ext_resource type="AudioStream" uid="uid://cp3w0scjjfbi1" path="res://Assets/Trilha Sonora/menu musica.mp3" id="8_pl64j"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pkpbv")
+
+[node name="Telaincial" type="Sprite2D" parent="."]
+position = Vector2(579, 333)
+scale = Vector2(0.209375, 0.214225)
+texture = ExtResource("1_vtpcv")
+
+[node name="fechar" type="TextureButton" parent="." groups=["button"]]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 477.0
+offset_right = 950.0
+offset_bottom = 599.0
+texture_normal = ExtResource("2_le76e")
+texture_pressed = ExtResource("3_441qq")
+texture_hover = ExtResource("3_441qq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="jogar" type="TextureButton" parent="." groups=["button"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.036
+anchor_bottom = 0.031
+offset_left = 655.0
+offset_top = 319.0
+offset_right = 941.528
+offset_bottom = 455.912
+texture_normal = ExtResource("4_dbpar")
+texture_pressed = ExtResource("5_smbv2")
+texture_hover = ExtResource("5_smbv2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Logo-removebg" type="Sprite2D" parent="."]
+position = Vector2(873, 287)
+scale = Vector2(0.206855, 0.23931)
+texture = ExtResource("7_epqe1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pl64j")
+volume_db = -23.258
+autoplay = true

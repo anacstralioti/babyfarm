@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dla4ci7dvfxk4"]
+
+[ext_resource type="Script" path="res://tomate_seedpack.gd" id="1_x6ye5"]
+[ext_resource type="Texture2D" uid="uid://b5s20d7nva103" path="res://Assets/plantss/Seeds_Cereals.png" id="2_tv62t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsm37"]
+atlas = ExtResource("2_tv62t")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpx6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsm37")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjh37"]
+radius = 13.0
+
+[node name="tomate_seedpack" type="StaticBody2D"]
+script = ExtResource("1_x6ye5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bpx6m")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rjh37")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

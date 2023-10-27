@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcnnr1v4a174s"]
+
+[ext_resource type="Texture2D" uid="uid://b3difc3yunmwr" path="res://Assets/Player/Townfolk.png" id="1_d8a5k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apydp"]
+atlas = ExtResource("1_d8a5k")
+region = Rect2(24, 96, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixa2a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apydp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eu5pq"]
+radius = 4.0
+height = 26.0
+
+[node name="villager" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ixa2a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_eu5pq")
